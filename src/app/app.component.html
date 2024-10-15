@@ -1,0 +1,77 @@
+<div class="row-layout header">
+  <div class="row-layout group">
+    <div class="row-layout group_1">
+      <igx-avatar src="/assets/Teddy&%2339;s Toyland.png" shape="circle" routerLink="/toys-view" class="avatar"></igx-avatar>
+      <h6 routerLink="/toys-view" class="h6">
+        App Name
+      </h6>
+    </div>
+    <div class="row-layout group_2">
+      <button igxRipple igxIconButton="flat" [igxToggleAction]="profile" class="icon-button">
+        <igx-icon>
+          account_circle
+        </igx-icon>
+      </button>
+      <button igxRipple igxIconButton="flat" routerLink="/search" class="icon-button">
+        <igx-icon>
+          search
+        </igx-icon>
+      </button>
+      <button igxRipple igxIconButton="flat" [igxToggleAction]="cart" class="icon-button">
+        <igx-icon>
+          shopping_cart
+        </igx-icon>
+      </button>
+      <button igxRipple igxIconButton="flat" routerLink="/admin-panel" class="icon-button_1">
+        <igx-icon>
+          settings
+        </igx-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="column-layout centered-content">
+  <div class="view-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="row-layout footer">
+  <p class="text">
+    The most beautiful application out there
+  </p>
+</div>
+<igx-dialog [closeOnOutsideSelect]="true" #profile>
+  <igx-dialog-title>
+    <h5>
+      Profile information
+    </h5>
+  </igx-dialog-title>
+  <ng-container>
+    <p>Here your info goes.</p>
+  </ng-container>
+  <igx-dialog-actions>
+    <button igxButton="flat" igxRipple [igxToggleAction]="profile">
+  </button>
+    <button igxButton="flat" igxRipple [igxToggleAction]="profile">
+      OK
+    </button>
+  </igx-dialog-actions>
+</igx-dialog>
+<igx-dialog [closeOnOutsideSelect]="true" #cart>
+  <igx-dialog-title>
+    <h5>
+      Empty cart
+    </h5>
+  </igx-dialog-title>
+  <ng-container>
+    <p>------ example ------</p>
+  </ng-container>
+  <igx-dialog-actions>
+    <button igxButton="flat" igxRipple [igxToggleAction]="cart">
+      Cancel
+    </button>
+    <button igxButton="flat" igxRipple [igxToggleAction]="cart">
+      OK
+    </button>
+  </igx-dialog-actions>
+</igx-dialog>

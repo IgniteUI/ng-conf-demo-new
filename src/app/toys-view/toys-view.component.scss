@@ -1,0 +1,86 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  padding: 16px;
+  height: 81px;
+  min-width: 50px;
+  min-height: 50px;
+  max-height: 81px;
+}
+.row-layout {
+  display: flex;
+}
+.group_1 {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  padding: 16px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.card {
+  width: 320px;
+  height: max-content;
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+.group_2 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 5px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.button-group {
+  width: 80%;
+  height: max-content;
+  min-width: min-content;
+  max-width: 80%;
+}
+.button {
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+}
+.body-content {
+  min-width: 50px;
+  min-height: 50px;
+}
+.actions-content {
+  min-width: 50px;
+  min-height: 40px;
+}
+.icon-button {
+  --ig-size: var(--ig-size-small);
+}
+.h5 {
+  height: max-content;
+  min-width: min-content;
+}
+.snackbar {
+  height: max-content;
+  min-width: min-content;
+  flex-shrink: 0;
+}

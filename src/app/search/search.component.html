@@ -1,0 +1,28 @@
+<div class="row-layout group">
+  <igx-input-group type="border" class="input">
+    <input type="text" [(ngModel)]="searchToy" igxInput />
+    <label igxLabel>toy</label>
+  </igx-input-group>
+</div>
+<div class="row-layout group_1">
+  @for (item of myAPIToyModel; track item) {
+    <igx-card class="card">
+      <igx-card-header>
+        <h3 igxCardHeaderTitle>
+          {{ item.name }}
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+          {{ item.id }}
+        </h5>
+      </igx-card-header>
+      <igx-card-actions class="actions-content">
+        <ng-container igxStart>
+          <button igxButton="flat" igxRipple [routerLink]="['/toy-details', item.id]" class="button">
+            View details
+          </button>
+        </ng-container>
+        <ng-container igxEnd></ng-container>
+      </igx-card-actions>
+    </igx-card>
+  }
+</div>

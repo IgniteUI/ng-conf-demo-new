@@ -1,0 +1,29 @@
+<div class="column-layout group">
+  <div class="row-layout group_1">
+    <button igxButton="contained" igxRipple routerLink="/toys-view" class="button">
+      <igx-icon>
+        arrow_back
+      </igx-icon>
+      <span>Go back</span>
+    </button>
+  </div>
+  <h5 class="h5">
+    Toy Details
+  </h5>
+  <igx-input-group type="border" class="input">
+    <input type="text" [value]="toyFromRequest?.id || null" [disabled]="true" igxInput />
+    <label igxLabel>ID</label>
+  </igx-input-group>
+  <igx-input-group type="border" class="input">
+    <input type="text" [value]="toyFromRequest?.name || null" [disabled]="true" igxInput />
+    <label igxLabel>Name</label>
+  </igx-input-group>
+  <igx-input-group type="border" class="input">
+    <input type="text" [value]="toyFromRequest?.price || null" [disabled]="true" igxInput />
+    <label igxLabel>Price</label>
+  </igx-input-group>
+  <igx-input-group type="border" class="input">
+    <input type="text" [value]="toyFromRequest?.categoryID || null" [disabled]="true" igxInput />
+    <label igxLabel>CategoryID</label>
+  </igx-input-group>
+</div>

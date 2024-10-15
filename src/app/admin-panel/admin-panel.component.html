@@ -1,0 +1,41 @@
+<div class="column-layout group">
+  <igx-grid [data]="myAPIToyModel" primaryKey="id" [rowEditable]="true" [allowFiltering]="true" filterMode="excelStyleFilter" (rowAdded)="apiToysCreateToyRowAdded($event)" (rowDeleted)="apiToysDeleteToyByIdRowDeleted($event)" (rowEditDone)="apiToysUpdateToyRowEditDone($event)" class="grid">
+    <igx-grid-toolbar>
+      <igx-grid-toolbar-actions>
+        <igx-grid-toolbar-pinning></igx-grid-toolbar-pinning>
+        <igx-grid-toolbar-hiding></igx-grid-toolbar-hiding>
+        <igx-grid-toolbar-exporter></igx-grid-toolbar-exporter>
+      </igx-grid-toolbar-actions>
+      <igx-grid-toolbar-title>Backoffice</igx-grid-toolbar-title>
+    </igx-grid-toolbar>
+    <igx-paginator [perPage]="10"></igx-paginator>
+    <igx-column field="id" dataType="number" header="id" [hidden]="true" [filterable]="true" [groupable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="name" dataType="string" header="name" [filterable]="true" [groupable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-column field="categoryID" dataType="number" header="categoryID" [filterable]="true" [groupable]="true" [sortable]="true" [selectable]="false">
+      <ng-template igxCellEditor let-cell="cell">
+        @if (selectVisible) {
+          <igx-select type="border" [(ngModel)]="cell.editValue" class="select">
+            @for (item of ngConfToyStoreAPICategoryModel; track item) {
+              <igx-select-item [value]="item.id">
+                {{ item.name }}
+              </igx-select-item>
+            }
+            <label igxLabel>CategoryID</label>
+          </igx-select>
+        }
+        <igx-radio-group [(ngModel)]="cell.editValue" class="radio-group">
+          @for (item of ngConfToyStoreAPICategoryModel; track item) {
+            <igx-radio [value]="item.id" class="radio">
+              {{ item.name }}
+            </igx-radio>
+          }
+        </igx-radio-group>
+      </ng-template>
+    </igx-column>
+    <igx-column field="price" dataType="currency" header="price" [filterable]="true" [groupable]="true" [sortable]="true" [selectable]="false"></igx-column>
+    <igx-action-strip>
+      <igx-grid-pinning-actions></igx-grid-pinning-actions>
+      <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
+    </igx-action-strip>
+  </igx-grid>
+</div>

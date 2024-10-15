@@ -1,0 +1,55 @@
+<div class="column-layout group">
+  <igx-buttongroup class="button-group">
+    @for (item of myAPICategoryModel; track item) {
+      <button igxButton igxRipple (click)="toggleButtonClick(item)">
+        {{ item.description }}
+      </button>
+    }
+  </igx-buttongroup>
+</div>
+<div class="row-layout group_1">
+  @for (item of myAPIToyModel; track item) {
+    <igx-card class="card">
+      <igx-card-header>
+        <h3 igxCardHeaderTitle>
+          {{ item.name }}
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+          {{ item.id }}
+        </h5>
+      </igx-card-header>
+      <igx-card-content class="body-content">
+        <div class="row-layout group_2">
+          <h5 class="h5">
+            Price:
+          </h5>
+          <h5 class="h5">
+            {{ item.price }}
+          </h5>
+        </div>
+      </igx-card-content>
+      <igx-card-actions class="actions-content">
+        <ng-container igxStart>
+          <button igxButton="flat" igxRipple [routerLink]="['/toy-details', item.id]" class="button">
+            View details
+          </button>
+        </ng-container>
+        <ng-container igxEnd>
+          <button igxRipple igxIconButton="flat" [igxToggleAction]="snackbar" class="icon-button">
+            <igx-icon>
+              shopping_cart
+            </igx-icon>
+          </button>
+          <button igxRipple igxIconButton="flat" routerLink="/admin-panel" class="icon-button">
+            <igx-icon>
+              settings
+            </igx-icon>
+          </button>
+        </ng-container>
+      </igx-card-actions>
+    </igx-card>
+  }
+  <igx-snackbar actionText="Close" [displayTime]="1000" [igxToggleAction]="snackbar" #snackbar class="snackbar">
+    Added to cart!!!
+  </igx-snackbar>
+</div>

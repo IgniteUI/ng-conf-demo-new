@@ -1,0 +1,41 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.grid {
+  --ig-size: var(--ig-size-medium);
+  margin: 20px;
+  min-width: 600px;
+  min-height: 300px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.select {
+  --ig-size: var(--ig-size-small);
+  height: max-content;
+  min-width: min-content;
+}
+.radio-group {
+  width: max-content;
+  height: max-content;
+}
+.radio {
+  padding: 8px;
+}
