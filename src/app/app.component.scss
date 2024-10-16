@@ -10,7 +10,7 @@
   display: flex;
 }
 .header {
-  background-color: hsla(var(--ig-secondary-500));
+  background-color: hsla(var(--ig-secondary-400));
   border-color: hsla(var(--ig-gray-200));
   border-width: 0px 0px 1px;
   border-style: solid;
@@ -67,7 +67,7 @@
   flex-basis: 0;
 }
 .footer {
-  background-color: hsla(var(--ig-secondary-500));
+  background-color: hsla(var(--ig-secondary-400));
   border-color: hsla(var(--ig-gray-200));
   border-width: 2px 0px 0px;
   border-style: solid;
@@ -106,9 +106,9 @@
 .view-container {
   overflow: auto;
   position: relative;
-  width: 80%;
-  min-width: 80%;
-  max-width: 85%;
+  width: 85%;
+  min-width: 85%;
+  max-width: 90%;
   flex-grow: 1;
   flex-basis: 0;
 }

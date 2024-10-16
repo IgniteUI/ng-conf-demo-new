@@ -8,8 +8,8 @@
 @include typography($font-family: "Boogaloo");
 
 $custom-palette: palette(
-  $primary: #89ccf8,
-  $secondary: #fca1ca,
+  $primary: #a7dcff,
+  $secondary: #fdb8d7,
   $surface: #fff);
 @include theme($palette: $custom-palette, $roundness: 0.5);
 
