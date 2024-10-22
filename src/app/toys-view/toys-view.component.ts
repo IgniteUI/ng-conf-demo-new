@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IgxButtonDirective, IgxIconButtonDirective, IgxIconComponent, IgxOverlayOutletDirective, IgxRippleDirective, IgxSnackbarComponent, IgxToggleActionDirective, IgxToggleDirective } from 'igniteui-angular';
 import { Subject, take, takeUntil } from 'rxjs';
-import { ToyModel } from '../models/my-api/toy-model';
+import { ToyModelMyAPI } from '../models/my-api/toy-model-my-api';
 import { CategoryModelMyAPI } from '../models/my-api/category-model-my-api';
 import { MyAPIService } from '../services/my-api.service';
 
@@ -25,7 +25,7 @@ export class ToysViewComponent implements OnInit, OnDestroy {
     this.myAPIToyModel$.next();
   }
   public myAPICategoryModel: CategoryModelMyAPI[] = [];
-  public myAPIToyModel: ToyModel[] = [];
+  public myAPIToyModel: ToyModelMyAPI[] = [];
   public myAPIToyModel$: Subject<void> = new Subject<void>();
 
 
