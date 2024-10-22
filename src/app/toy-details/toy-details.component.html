@@ -11,19 +11,19 @@
     Toy Details
   </h5>
   <igx-input-group type="border" class="input">
-    <input type="text" [value]="toyFromRequest?.id || null" [disabled]="true" igxInput />
+    <input type="text" [value]="toyFromRequest?.id || null" [disabled]="true" required igxInput />
     <label igxLabel>ID</label>
   </igx-input-group>
   <igx-input-group type="border" class="input">
-    <input type="text" [value]="toyFromRequest?.name || null" [disabled]="true" igxInput />
+    <input type="text" [value]="toyFromRequest?.name || null" [disabled]="true" required igxInput />
     <label igxLabel>Name</label>
   </igx-input-group>
   <igx-input-group type="border" class="input">
-    <input type="text" [value]="toyFromRequest?.price || null" [disabled]="true" igxInput />
+    <input type="text" [value]="toyFromRequest?.price || null" [disabled]="true" required igxInput />
     <label igxLabel>Price</label>
   </igx-input-group>
   <igx-input-group type="border" class="input">
-    <input type="text" [value]="toyFromRequest?.categoryID || null" [disabled]="true" igxInput />
+    <input type="text" [value]="toyFromRequest?.categoryID || null" [disabled]="true" required igxInput />
     <label igxLabel>CategoryID</label>
   </igx-input-group>
 </div>

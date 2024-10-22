@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IGridEditDoneEventArgs, IGX_GRID_ACTION_STRIP_DIRECTIVES, IGX_GRID_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IGX_SELECT_DIRECTIVES, IgxRadioComponent, IgxRadioGroupDirective, IRowDataEventArgs } from 'igniteui-angular';
 import { Subject, takeUntil } from 'rxjs';
-import { ToyModel } from '../models/my-api/toy-model';
+import { ToyModelMyAPI } from '../models/my-api/toy-model-my-api';
 import { CategoryModel } from '../models/ng-conf-toy-store-api/category-model';
 import { NgConfToyStoreAPIService } from '../services/ng-conf-toy-store-api.service';
 import { MyAPIService } from '../services/my-api.service';
@@ -16,7 +16,7 @@ import { MyAPIService } from '../services/my-api.service';
 })
 export class AdminPanelComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
-  public myAPIToyModel: ToyModel[] = [];
+  public myAPIToyModel: ToyModelMyAPI[] = [];
   public ngConfToyStoreAPICategoryModel: CategoryModel[] = [];
   public selectVisible: boolean = false;
 

@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IGX_CARD_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxOverlayOutletDirective, IgxRippleDirective, IgxToggleActionDirective, IgxToggleDirective } from 'igniteui-angular';
 import { Subject, take, takeUntil } from 'rxjs';
-import { ToyModel } from '../models/my-api/toy-model';
-import { MyAPIService } from '../services/my-api.service';
+import { ToyModel } from '../models/ng-conf-toy-store-api/toy-model';
+import { NgConfToyStoreAPIService } from '../services/ng-conf-toy-store-api.service';
 
 @Component({
   selector: 'app-search',
@@ -22,29 +22,29 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
   public set searchToy(value: string) {
     this._searchToy = value;
-    this.myAPIToyModel$.next();
+    this.ngConfToyStoreAPIToyModel$.next();
   }
-  public myAPIToyModel: ToyModel[] = [];
-  public myAPIToyModel$: Subject<void> = new Subject<void>();
+  public ngConfToyStoreAPIToyModel: ToyModel[] = [];
+  public ngConfToyStoreAPIToyModel$: Subject<void> = new Subject<void>();
 
 
   constructor(
-    private myAPIService: MyAPIService,
+    private ngConfToyStoreAPIService: NgConfToyStoreAPIService,
   ) {}
 
   ngOnInit() {
-    this.myAPIService.getToyModelList2(this.searchToy).pipe(takeUntil(this.destroy$)).subscribe(
-      data => this.myAPIToyModel = data
+    this.ngConfToyStoreAPIService.getToyModelList(this.searchToy).pipe(takeUntil(this.destroy$)).subscribe(
+      data => this.ngConfToyStoreAPIToyModel = data
     );
-    this.myAPIToyModel$.pipe(takeUntil(this.destroy$)).subscribe(
-      () => { this.myAPIService.getToyModelList2(this.searchToy).pipe(take(1)).subscribe(
-        data => this.myAPIToyModel = data
+    this.ngConfToyStoreAPIToyModel$.pipe(takeUntil(this.destroy$)).subscribe(
+      () => { this.ngConfToyStoreAPIService.getToyModelList(this.searchToy).pipe(take(1)).subscribe(
+        data => this.ngConfToyStoreAPIToyModel = data
     )});
   }
 
   ngOnDestroy() {
     this.destroy$.next();
-    this.myAPIToyModel$.complete();
+    this.ngConfToyStoreAPIToyModel$.complete();
     this.destroy$.complete();
   }
 }
