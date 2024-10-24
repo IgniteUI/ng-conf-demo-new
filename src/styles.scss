@@ -8,9 +8,9 @@
 @include typography($font-family: "Boogaloo");
 
 $custom-palette: palette(
-  $primary: #a7dcff,
-  $secondary: #fdb8d7,
-  $surface: #fff);
+  $primary: #89CCF8,
+  $secondary: #FCA1CA,
+  $surface: #fdf2ec);
 @include theme($palette: $custom-palette, $roundness: 0.5);
 
 body {
