@@ -1,5 +1,5 @@
 {
-  "name": "ngconf-demo",
+  "name": "ngconf-toy-store-demo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

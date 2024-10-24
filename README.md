@@ -1,4 +1,4 @@
-# NG Conf Demo
+# NG Conf Toy Store Demo
 
 This project was generated with [App Builder Code Gen](https://www.infragistics.com/products/appbuilder).
 
