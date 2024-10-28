@@ -13,28 +13,25 @@
     <igx-column field="name" dataType="string" header="name" [filterable]="true" [groupable]="true" [sortable]="true" [selectable]="false"></igx-column>
     <igx-column field="categoryID" dataType="number" header="categoryID" [filterable]="true" [groupable]="true" [sortable]="true" [selectable]="false">
       <ng-template igxCell let-cell="cell">
-        <igx-select type="border" [(ngModel)]="cell.value" class="select">
-          @for (item of ngConfToyStoreAPICategoryModel; track item) {
+        <igx-select type="border" [(ngModel)]="cell.value" [disabled]="true" class="select">
+          @for (item of myAPICategoryModel; track item) {
             <igx-select-item [value]="item.id">
               {{ item.name }}
             </igx-select-item>
           }
-          <label igxLabel>CategoryID</label>
         </igx-select>
       </ng-template>
       <ng-template igxCellEditor let-cell="cell">
         @if (selectVisible) {
-          <igx-select type="border" [(ngModel)]="cell.editValue" class="select_1">
-            @for (item of ngConfToyStoreAPICategoryModel; track item) {
-              <igx-select-item [value]="item.id">
-                {{ item.name }}
-              </igx-select-item>
-            }
+          <igx-select type="border" [(ngModel)]="cell.editValue" class="select">
+            <igx-select-item value="Option">
+              Option
+            </igx-select-item>
             <label igxLabel>CategoryID</label>
           </igx-select>
         }
         <igx-radio-group [(ngModel)]="cell.editValue" class="radio-group">
-          @for (item of ngConfToyStoreAPICategoryModel; track item) {
+          @for (item of myAPICategoryModel; track item) {
             <igx-radio [value]="item.id" class="radio">
               {{ item.name }}
             </igx-radio>

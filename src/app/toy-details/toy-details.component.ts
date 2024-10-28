@@ -2,7 +2,7 @@ import { Component, Input, numberAttribute, OnDestroy, OnInit } from '@angular/c
 import { RouterLink } from '@angular/router';
 import { IGX_INPUT_GROUP_DIRECTIVES, IgxButtonDirective, IgxIconComponent, IgxOverlayOutletDirective, IgxRippleDirective, IgxToggleActionDirective, IgxToggleDirective } from 'igniteui-angular';
 import { Subject, take, takeUntil } from 'rxjs';
-import { ToyModelMyAPI } from '../models/my-api/toy-model-my-api';
+import { ToyModel } from '../models/my-api/toy-model';
 import { MyAPIService } from '../services/my-api.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { MyAPIService } from '../services/my-api.service';
 })
 export class ToyDetailsComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
-  public toyFromRequest?: ToyModelMyAPI;
+  public toyFromRequest?: ToyModel;
   public toyFromRequest$: Subject<void> = new Subject<void>();
 
 
