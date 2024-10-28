@@ -2,9 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IGridEditDoneEventArgs, IGX_GRID_ACTION_STRIP_DIRECTIVES, IGX_GRID_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES, IGX_SELECT_DIRECTIVES, IgxRadioComponent, IgxRadioGroupDirective, IRowDataEventArgs } from 'igniteui-angular';
 import { Subject, takeUntil } from 'rxjs';
-import { CategoryModel } from '../models/ng-conf-toy-store-api/category-model';
-import { ToyModelMyAPI } from '../models/my-api/toy-model-my-api';
-import { NgConfToyStoreAPIService } from '../services/ng-conf-toy-store-api.service';
+import { ToyModel } from '../models/my-api/toy-model';
+import { CategoryModel } from '../models/my-api/category-model';
 import { MyAPIService } from '../services/my-api.service';
 
 @Component({
@@ -16,21 +15,20 @@ import { MyAPIService } from '../services/my-api.service';
 })
 export class AdminPanelComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
-  public myAPIToyModel: ToyModelMyAPI[] = [];
-  public ngConfToyStoreAPICategoryModel: CategoryModel[] = [];
+  public myAPIToyModel: ToyModel[] = [];
+  public myAPICategoryModel: CategoryModel[] = [];
   public selectVisible: boolean = false;
 
   constructor(
     private myAPIService: MyAPIService,
-    private ngConfToyStoreAPIService: NgConfToyStoreAPIService,
   ) {}
 
   ngOnInit() {
     this.myAPIService.getToyModelList1().pipe(takeUntil(this.destroy$)).subscribe(
       data => this.myAPIToyModel = data
     );
-    this.ngConfToyStoreAPIService.getCategoryModelList().pipe(takeUntil(this.destroy$)).subscribe(
-      data => this.ngConfToyStoreAPICategoryModel = data
+    this.myAPIService.getCategoryModelList().pipe(takeUntil(this.destroy$)).subscribe(
+      data => this.myAPICategoryModel = data
     );
   }
 

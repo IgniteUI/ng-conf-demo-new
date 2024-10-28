@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IgxButtonDirective, IgxIconButtonDirective, IgxIconComponent, IgxOverlayOutletDirective, IgxRippleDirective, IgxSnackbarComponent, IgxToggleActionDirective, IgxToggleDirective } from 'igniteui-angular';
 import { Subject, take, takeUntil } from 'rxjs';
-import { ToyModelMyAPI } from '../models/my-api/toy-model-my-api';
-import { CategoryModelMyAPI } from '../models/my-api/category-model-my-api';
+import { ToyModel } from '../models/my-api/toy-model';
+import { CategoryModel } from '../models/my-api/category-model';
 import { MyAPIService } from '../services/my-api.service';
 
 @Component({
@@ -24,8 +24,8 @@ export class ToysViewComponent implements OnInit, OnDestroy {
     this._categoryID = value;
     this.myAPIToyModel$.next();
   }
-  public myAPICategoryModel: CategoryModelMyAPI[] = [];
-  public myAPIToyModel: ToyModelMyAPI[] = [];
+  public myAPICategoryModel: CategoryModel[] = [];
+  public myAPIToyModel: ToyModel[] = [];
   public myAPIToyModel$: Subject<void> = new Subject<void>();
 
 
@@ -52,7 +52,7 @@ export class ToysViewComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  public toggleButtonClick(item: CategoryModelMyAPI) {
+  public toggleButtonClick(item: CategoryModel) {
     this.categoryID = item.id;
   }
 }
